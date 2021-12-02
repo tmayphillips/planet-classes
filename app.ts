@@ -1,7 +1,13 @@
 class Planet {
-    public static listOfPlanets:Planet = []
+    public static listOfPlanets:Planet[] = []
     public static inventoryCount: number = 2000000000
     public static purchasedPlanets = []
+
+    name:string
+
+    constructor(name:string) { 
+        this.name = name
+    }
 
     // general info
         // name
@@ -37,7 +43,9 @@ class IceGiant extends Planet {
 }
 
 class RockyPlanet extends Planet {
-
+    constructor(name:string) {
+        super(name) 
+    }
 }
     
 class Person {
@@ -67,11 +75,23 @@ function getInputValues() {
 }
     
 
-function createNewPlanet (name<string>, type<string>): void {
+function createNewPlanet (name:string, type:string): void {
+    let newPlanet:Planet
+
     if (type === 'rocky') {
-        let newPlanet = new Rocky(name)
+        newPlanet = new RockyPlanet(name)
+        Planet.listOfPlanets.push(newPlanet)
     }
-    Planet.listOfPlanets.push(newPlanet)
+    if (type === 'gas') {
+        newPlanet = new GasGiant(name)
+        Planet.listOfPlanets.push(newPlanet)
+    }
+    if (type === 'ice') {
+        newPlanet = new IceGiant(name)
+        Planet.listOfPlanets.push(newPlanet)
+    }
+
+    
 } 
 
 
