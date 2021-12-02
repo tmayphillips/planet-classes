@@ -1,9 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const Planet_1 = require("./Planet");
-const GasGiant_1 = require("./GasGiant");
-const IceGiant_1 = require("./IceGiant");
-const RockyPlanet_1 = require("./RockyPlanet");
+import Planet from "./Planet.js";
+import GasGiant from "./GasGiant.js";
+import IceGiant from "./IceGiant.js";
+import RockyPlanet from "./RockyPlanet.js";
 const submitPasswordBtn = document.getElementById('submit-password-btn');
 const planetListDiv = document.getElementById('planet-list');
 const addPlanetDiv = document.getElementById('add-planet');
@@ -12,11 +10,11 @@ class Person {
 function purchaseStar() {
     // private variables
     // private _planetName:string
-    Planet_1.Planet.inventoryCount--;
+    Planet.inventoryCount--;
 }
 function displayInventoryForm() {
     addPlanetDiv.style.display = 'none';
-    console.log(`Add password button pressed. Planet List: ${Planet_1.Planet.listOfPlanets}`);
+    console.log(`Add password button pressed. Planet List: ${Planet.listOfPlanets}`);
     planetListDiv.innerHTML += `
         <label for="planet-name">Planet Name:</label>
         <input type="text" id="planet-name" name="planet-name"><br>
@@ -67,19 +65,24 @@ function getInputValues() {
 function createNewPlanet(name, type, info) {
     let newPlanet;
     if (type === 'rocky') {
-        newPlanet = new RockyPlanet_1.RockyPlanet(name, info.size, info.parentStar);
-        Planet_1.Planet.listOfPlanets.push(newPlanet);
+        newPlanet = new RockyPlanet(name, info.size, info.parentStar, info.coreComponents);
+        Planet.listOfPlanets.push(newPlanet);
+        newPlanet.display();
     }
     if (type === 'gas') {
-        newPlanet = new GasGiant_1.GasGiant(name, info.size, info.parentStar);
-        Planet_1.Planet.listOfPlanets.push(newPlanet);
+        newPlanet = new GasGiant(name, info.size, info.parentStar, info.gases);
+        Planet.listOfPlanets.push(newPlanet);
+        newPlanet.display();
     }
     if (type === 'ice') {
-        newPlanet = new IceGiant_1.IceGiant(name, info.size, info.parentStar);
-        Planet_1.Planet.listOfPlanets.push(newPlanet);
+        newPlanet = new IceGiant(name, info.size, info.parentStar, info.fluidElements);
+        Planet.listOfPlanets.push(newPlanet);
+        newPlanet.display();
     }
 }
 createNewPlanet('Mercury', 'rocky', { size: 1516, parentStar: 'Sol', coreComponents: ['iron'] });
+createNewPlanet('Venus', 'rocky', { size: 2000, parentStar: 'Sol', coreComponents: ['iron', 'nickel'] });
+createNewPlanet('Jupiter', 'gas', { size: 20000, parentStar: 'Sol', gases: ['helium', 'hydrogen'] });
 // let mercury = new Rocky 
 // let venus = new Rocky
 // let earth = new Rocky

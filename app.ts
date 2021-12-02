@@ -1,7 +1,7 @@
-import { Planet } from "./Planet";
-import { GasGiant } from "./GasGiant";
-import { IceGiant } from "./IceGiant";
-import { RockyPlanet } from "./RockyPlanet";
+import  Planet  from "./Planet.js";
+import  GasGiant  from "./GasGiant.js";
+import  IceGiant  from "./IceGiant.js";
+import  RockyPlanet  from "./RockyPlanet.js";
 
 const submitPasswordBtn = document.getElementById('submit-password-btn')
 const planetListDiv = document.getElementById('planet-list')
@@ -109,20 +109,28 @@ function createNewPlanet (name:string, type:string, info:Info): void {
     let newPlanet:Planet
 
     if (type === 'rocky') {
-        newPlanet = new RockyPlanet(name, info.size, info.parentStar)
-        Planet.listOfPlanets.push(newPlanet)
+        newPlanet = new RockyPlanet(name, info.size, info.parentStar, (<rockyInfo>info).coreComponents);
+        Planet.listOfPlanets.push(newPlanet);
+        (<RockyPlanet>newPlanet).display();
     }
     if (type === 'gas') {
-        newPlanet = new GasGiant(name, info.size, info.parentStar)
-        Planet.listOfPlanets.push(newPlanet)
+        newPlanet = new GasGiant(name, info.size, info.parentStar, (<gasInfo>info).gases);
+        Planet.listOfPlanets.push(newPlanet);
+        (<GasGiant>newPlanet).display();
+
     }
     if (type === 'ice') {
-        newPlanet = new IceGiant(name, info.size, info.parentStar)
-        Planet.listOfPlanets.push(newPlanet)
+        newPlanet = new IceGiant(name, info.size, info.parentStar, (<iceInfo>info).fluidElements);
+        Planet.listOfPlanets.push(newPlanet);
+        (<IceGiant>newPlanet).display();
     }
 } 
 
 createNewPlanet ('Mercury', 'rocky', {size: 1516, parentStar: 'Sol', coreComponents:['iron']})
+createNewPlanet ('Venus', 'rocky', {size: 2000, parentStar: 'Sol', coreComponents:['iron', 'nickel']})
+createNewPlanet ('Jupiter', 'gas', {size: 20000, parentStar: 'Sol', gases:['helium', 'hydrogen']})
+
+
 
 // let mercury = new Rocky 
 // let venus = new Rocky

@@ -1,9 +1,15 @@
-import { Planet } from "./Planet";
+import  Planet  from "./Planet.js";
 
 
-export class GasGiant extends Planet { // inheritance
-    constructor(name:string, size:number, parentStar:string) {
+export default class GasGiant extends Planet { // inheritance
+    gases:string[]
+    constructor(name:string, size:number, parentStar:string, gases:string[]) {
         super(name, size, parentStar) 
+        this.gases = gases;
     }
     // receive a sample gas mixture - private function
+
+    public display() {
+        this.displayPlanet()
+    }
 }
