@@ -4,10 +4,15 @@ class Planet {
     public static purchasedPlanets = []
 
     name:string
+    size:number
+    parentStar:string
 
-    constructor(name:string) { 
+    constructor(name:string, size:number, parentStar:string) { 
         this.name = name
+        this.size = size
+        this.parentStar = parentStar
     }
+
 
     // general info
         // name
@@ -35,16 +40,21 @@ class Planet {
 }
     
 class GasGiant extends Planet { // inheritance
+    constructor(name:string, size:number, parentStar:string) {
+        super(name, size, parentStar) 
+    }
     // receive a sample gas mixture - private function
 }
 
 class IceGiant extends Planet {
-
+    constructor(name:string, size:number, parentStar:string) {
+        super(name, size, parentStar) 
+    }
 }
 
 class RockyPlanet extends Planet {
-    constructor(name:string) {
-        super(name) 
+    constructor(name:string, size:number, parentStar:string) {
+        super(name, size, parentStar) 
     }
 }
     
@@ -73,27 +83,33 @@ function getInputValues() {
     // check if name is already taken
     // create new Planet based on class
 }
+
+interface Info {
+    size:number
+    parentStar:string
+}
     
 
-function createNewPlanet (name:string, type:string): void {
+function createNewPlanet (name:string, type:string, info:Info): void {
     let newPlanet:Planet
 
     if (type === 'rocky') {
-        newPlanet = new RockyPlanet(name)
+        newPlanet = new RockyPlanet(name, info.size, info.parentStar)
         Planet.listOfPlanets.push(newPlanet)
     }
     if (type === 'gas') {
-        newPlanet = new GasGiant(name)
+        newPlanet = new GasGiant(name, info.size, info.parentStar)
         Planet.listOfPlanets.push(newPlanet)
     }
     if (type === 'ice') {
-        newPlanet = new IceGiant(name)
+        newPlanet = new IceGiant(name, info.size, info.parentStar)
         Planet.listOfPlanets.push(newPlanet)
     }
 
     
 } 
 
+createNewPlanet ('Mercury', 'rocky', {size: 1516, parentStar: 'Sol'})
 
 // let mercury = new Rocky 
 // let venus = new Rocky
