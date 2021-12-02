@@ -1,7 +1,7 @@
-import { Planet } from "./Planet";
+import Planet from "./Planet.js";
 
 
-export class GasGiant extends Planet { // inheritance
+export default class GasGiant extends Planet { // inheritance
     constructor(name:string, size:number, parentStar:string) {
         super(name, size, parentStar) 
     }

@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
@@ -16,17 +17,16 @@
             <div id = 'planet-list' class = 'planet-list'></div>
             <div id = 'add-planet'>
               <h2>Add planet to inventory (admins only)</h2>
-              <form>
-                <label for="password">Admin password:</label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" name="password" placeholder='enter password'>
                 <button type='submit' id='submit-password-btn' class = 'btn'>Submit</button>
-              </form>
             </div>
+            <div id='info-section' class='info-section'></div>
+            <button id='submit-planet-btn' class='btn'>Submit</button>
         </div>
     </div>
 
 
-
-  <script src="app.js"></script>
+  <script>var exports = {};</script>
+  <script type='module' src="app.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
-import { Planet } from "./Planet";
+import Planet from "./Planet.js";
 
-export class RockyPlanet extends Planet {
+export default class RockyPlanet extends Planet {
     constructor(name:string, size:number, parentStar:string) {
         super(name, size, parentStar) 
     }
