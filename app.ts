@@ -1,51 +1,6 @@
 const submitPasswordBtn = document.getElementById('submit-password-btn')
 const planetListDiv = document.getElementById('planet-list')
 const addPlanetDiv = document.getElementById('add-planet')
-
-class Planet {
-    public static listOfPlanets:Planet[] = []
-    public static inventoryCount:number = 2000000000
-    public static purchasedPlanets:string[] = []
-
-    name:string
-    size:number
-    parentStar:string
-
-    constructor(name:string, size:number, parentStar:string) { 
-        this.name = name
-        this.size = size
-        this.parentStar = parentStar
-    }
-
-    //  planet display function - protected method
-        // event listener - submit btn
-
-        // <div id = 'mercury'>
-        //     <img src='mercury.jpg' />
-        //     <h2 class='planet-name'>Mercury</h2>
-        //     <h3 class='planet-type'>Rocky</h3>
-        //     <p>Buy Mercury. It's great!</p>
-        // </div>
-}
-    
-class GasGiant extends Planet { // inheritance
-    constructor(name:string, size:number, parentStar:string) {
-        super(name, size, parentStar) 
-    }
-    // receive a sample gas mixture - private function
-}
-
-class IceGiant extends Planet {
-    constructor(name:string, size:number, parentStar:string) {
-        super(name, size, parentStar) 
-    }
-}
-
-class RockyPlanet extends Planet {
-    constructor(name:string, size:number, parentStar:string) {
-        super(name, size, parentStar) 
-    }
-}
     
 class Person {
     // private _firstName:string

@@ -2,31 +2,6 @@
 const submitPasswordBtn = document.getElementById('submit-password-btn');
 const planetListDiv = document.getElementById('planet-list');
 const addPlanetDiv = document.getElementById('add-planet');
-class Planet {
-    constructor(name, size, parentStar) {
-        this.name = name;
-        this.size = size;
-        this.parentStar = parentStar;
-    }
-}
-Planet.listOfPlanets = [];
-Planet.inventoryCount = 2000000000;
-Planet.purchasedPlanets = [];
-class GasGiant extends Planet {
-    constructor(name, size, parentStar) {
-        super(name, size, parentStar);
-    }
-}
-class IceGiant extends Planet {
-    constructor(name, size, parentStar) {
-        super(name, size, parentStar);
-    }
-}
-class RockyPlanet extends Planet {
-    constructor(name, size, parentStar) {
-        super(name, size, parentStar);
-    }
-}
 class Person {
 }
 function purchaseStar() {
