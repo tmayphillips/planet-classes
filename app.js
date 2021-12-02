@@ -52,17 +52,19 @@ function displayInventoryForm() {
     typeSelect.addEventListener('change', event => {
         if (typeSelect.value === 'gas') {
             planetListDiv.innerHTML += `
-                <div>
-                    <input type="checkbox" id="oxygen" name="oxygen">
-                    <label for='oxygen'>Oxygen</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="helium" name="helium">
-                    <label for='helium'>Helium</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="hydrogen" name="hydrogen">
-                    <label for='hydrogen'>Hydrogen</label>
+                <div id='gas-mixture' class='gas-mixtuer'>
+                    <div>
+                        <input type="checkbox" id="oxygen" name="oxygen">
+                        <label for='oxygen'>Oxygen</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="helium" name="helium">
+                        <label for='helium'>Helium</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="hydrogen" name="hydrogen">
+                        <label for='hydrogen'>Hydrogen</label>
+                    </div>
                 </div>
             `;
         }
@@ -97,7 +99,7 @@ function createNewPlanet(name, type, info) {
         Planet.listOfPlanets.push(newPlanet);
     }
 }
-createNewPlanet('Mercury', 'rocky', { size: 1516, parentStar: 'Sol' });
+createNewPlanet('Mercury', 'rocky', { size: 1516, parentStar: 'Sol', coreComponents: ['iron'] });
 // let mercury = new Rocky 
 // let venus = new Rocky
 // let earth = new Rocky

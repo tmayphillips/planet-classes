@@ -17,12 +17,6 @@ class Planet {
         this.parentStar = parentStar
     }
 
-    
-    
-
-        
-        
-
     //  planet display function - protected method
         // event listener - submit btn
 
@@ -166,8 +160,6 @@ function createNewPlanet (name:string, type:string, info:Info): void {
         newPlanet = new IceGiant(name, info.size, info.parentStar)
         Planet.listOfPlanets.push(newPlanet)
     }
-
-    
 } 
 
 createNewPlanet ('Mercury', 'rocky', {size: 1516, parentStar: 'Sol', coreComponents:['iron']})
