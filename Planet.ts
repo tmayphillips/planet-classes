@@ -1,4 +1,4 @@
-export class Planet {
+export default class Planet {
     public static listOfPlanets:Planet[] = []
     public static inventoryCount:number = 2000000000
     public static purchasedPlanets:string[] = []
