@@ -1,3 +1,8 @@
+import { Planet } from "./Planet";
+import { GasGiant } from "./GasGiant";
+import { IceGiant } from "./IceGiant";
+import { RockyPlanet } from "./RockyPlanet";
+
 const submitPasswordBtn = document.getElementById('submit-password-btn')
 const planetListDiv = document.getElementById('planet-list')
 const addPlanetDiv = document.getElementById('add-planet')

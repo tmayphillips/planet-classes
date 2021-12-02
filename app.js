@@ -1,4 +1,9 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Planet_1 = require("./Planet");
+const GasGiant_1 = require("./GasGiant");
+const IceGiant_1 = require("./IceGiant");
+const RockyPlanet_1 = require("./RockyPlanet");
 const submitPasswordBtn = document.getElementById('submit-password-btn');
 const planetListDiv = document.getElementById('planet-list');
 const addPlanetDiv = document.getElementById('add-planet');
@@ -7,11 +12,11 @@ class Person {
 function purchaseStar() {
     // private variables
     // private _planetName:string
-    Planet.inventoryCount--;
+    Planet_1.Planet.inventoryCount--;
 }
 function displayInventoryForm() {
     addPlanetDiv.style.display = 'none';
-    console.log(`Add password button pressed. Planet List: ${Planet.listOfPlanets}`);
+    console.log(`Add password button pressed. Planet List: ${Planet_1.Planet.listOfPlanets}`);
     planetListDiv.innerHTML += `
         <label for="planet-name">Planet Name:</label>
         <input type="text" id="planet-name" name="planet-name"><br>
@@ -62,16 +67,16 @@ function getInputValues() {
 function createNewPlanet(name, type, info) {
     let newPlanet;
     if (type === 'rocky') {
-        newPlanet = new RockyPlanet(name, info.size, info.parentStar);
-        Planet.listOfPlanets.push(newPlanet);
+        newPlanet = new RockyPlanet_1.RockyPlanet(name, info.size, info.parentStar);
+        Planet_1.Planet.listOfPlanets.push(newPlanet);
     }
     if (type === 'gas') {
-        newPlanet = new GasGiant(name, info.size, info.parentStar);
-        Planet.listOfPlanets.push(newPlanet);
+        newPlanet = new GasGiant_1.GasGiant(name, info.size, info.parentStar);
+        Planet_1.Planet.listOfPlanets.push(newPlanet);
     }
     if (type === 'ice') {
-        newPlanet = new IceGiant(name, info.size, info.parentStar);
-        Planet.listOfPlanets.push(newPlanet);
+        newPlanet = new IceGiant_1.IceGiant(name, info.size, info.parentStar);
+        Planet_1.Planet.listOfPlanets.push(newPlanet);
     }
 }
 createNewPlanet('Mercury', 'rocky', { size: 1516, parentStar: 'Sol', coreComponents: ['iron'] });
